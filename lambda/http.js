@@ -1,8 +1,8 @@
 var https = require("https");
 
-exports.handler = async event => {
+exports.handler = async (event, context, callback) => {
     var body = event.body || event.queryStringParameters || ''
-
+console.log(body)
 
         var options = {
 

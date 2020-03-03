@@ -21,14 +21,16 @@ export default class Index extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...this.state,
-      }),
-    })
+    fetch('https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec', form
+//       '/', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+//       body: encode({
+//         'form-name': form.getAttribute('name'),
+//         ...this.state,
+//       }),
+//    }
+         )
       .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error))
   }
@@ -43,7 +45,7 @@ export default class Index extends React.Component {
               <form
                 name="contact"
                 method="post"
-                action="https://ik.netlify.com/.netlify/functions/bot"
+                action="https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec"
                 onSubmit={this.handleSubmit}
               >
              

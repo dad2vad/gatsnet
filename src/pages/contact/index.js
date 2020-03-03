@@ -2,8 +2,7 @@ import  React, { useState } from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 
-  const handleChange = e =>
-    setContact({ ...contact, [e.target.name]: e.target.value })
+
 
   const handleSubmit = async e => {
      e.preventDefault();
@@ -19,21 +18,10 @@ export default class Index extends React.Component {
     super(props)
     this.state = { isValidated: false }
   }
-  const [contact, setContact] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    phone: '', 
-    message: ''
-    })
-  
-  const [response, setResponse] = useState({
-    type: '',
-    message: ''
-  })
-//  const handleChange = e => {
-//     this.setState({ [e.target.name]: e.target.value })
-//   }
+
+ const handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
 //  const handleSubmit = async e => {
 //     e.preventDefault()

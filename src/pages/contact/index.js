@@ -9,7 +9,7 @@ import Layout from '../../components/Layout'
   const handleSubmit = async e => {
      e.preventDefault();
     
-const res = await fetch('https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec?' + JSON.stringify(e,null,4))
+const res = await fetch('/.netlify/functions/http/' + JSON.stringify(e,null,4))
 
        console.log(res)
   }

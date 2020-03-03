@@ -9,7 +9,7 @@ import Layout from '../../components/Layout'
   const handleSubmit = async e => {
      e.preventDefault();
     
-const res = await fetch('https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec?' + e)
+const res = await fetch('https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec?' + JSON.stringify(e,null,4))
 
        console.log(res)
   }
@@ -41,7 +41,7 @@ export default class Index extends React.Component {
             <div className="content">
               <h1>Contact</h1>
                  <form
-                    action='\/.netlify\/functions\/http\/'
+                    action='/.netlify/functions/http/'
                     method='post'
                     onSubmit={handleSubmit}
                   >

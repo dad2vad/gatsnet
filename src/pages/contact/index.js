@@ -1,7 +1,7 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
-import { useState } from 'react'
+
 
   const [contact, setContact] = useState({
     name: '',

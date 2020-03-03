@@ -2,7 +2,7 @@
 //module.exports.handler = async function(event, context) {
 exports.handler = async event => {
   
-  const e = JSON.parse(event.body)
+  const e = event.body
   console.log(JSON.stringify(e,null,4))
   
   return {

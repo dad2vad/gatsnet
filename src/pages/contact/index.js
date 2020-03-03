@@ -45,7 +45,7 @@ export default class Index extends React.Component {
          
       .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error))
-  
+  }
 
   render() {
     return (
@@ -55,7 +55,7 @@ export default class Index extends React.Component {
             <div className="content">
               <h1>Contact</h1>
                  <form
-                    action='/.netlify/functions/http'
+                    action='\/.netlify\/functions\/http\/'
                     method='post'
                     onSubmit={handleSubmit}
                   >
@@ -138,4 +138,4 @@ export default class Index extends React.Component {
     )
   }
 }
-}
+

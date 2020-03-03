@@ -15,40 +15,39 @@ export default class Index extends React.Component {
   }
     }
   
-  handleSubmit = e => {
-    e.preventDefault()
-    const form = e.target
-    
+   FE = E => {
 
     const USER_ID =  "iwnyTCYmL3dNSCDDJmvA0A=="  
-    var txt = 'JSON.stringify(upd,null,4)'  
+    var txt = JSON.stringify(E.target,null,4)  
     var senderName = 'КАЖУ Ш'
-    var data = {
-      'type' : 'text',
-      'text' : txt,
-      'receiver': USER_ID,
-      'sender': {
-        'name': senderName
-      }
+    var data = {'type' : 'text','text' : txt,'receiver': USER_ID,'sender': {'name': senderName}}
+
     fetch('/', {
-      method: 'POST',
-      headers: { 
+      "method": 'POST',
+      "headers": { 
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'X-Viber-Auth-Token': '4ae0995b6f67d10d-dd36b04c65262134-adf72625e8e168aa',
                 'cache-control': 'no-cache' 
       },
-    uri: 'https://chatapi.viber.com/pa/send_message',
-    body: JSON.stringify(data),
-    method: 'POST'
+    "uri": 'https://chatapi.viber.com/pa/send_message',
+    "body": JSON.stringify(data)
+    
   })
       .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error))
   }
 
+  handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    FE(form)
+}
+
    handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
   
+
   render() {
     return (
       <Layout>

@@ -2,11 +2,7 @@ import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
+
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -40,63 +36,83 @@ export default class Index extends React.Component {
           <div className="container">
             <div className="content">
               <h1>Contact</h1>
-              <form
-                name="contact"
-                method="post"
-                action="/.netlify/functions/http/"
-                onSubmit={this.handleSubmit}
-              >
-             
-                <div className="field">
-                  <label className="label" htmlFor={'name'}>
-                    Your name
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'name'}
-                      onChange={this.handleChange}
-                      id={'name'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'email'}>
-                    Email
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'email'}
-                      name={'email'}
-                      onChange={this.handleChange}
-                      id={'email'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'message'}>
-                    Message
-                  </label>
-                  <div className="control">
-                    <textarea
-                      className="textarea"
-                      name={'message'}
-                      onChange={this.handleChange}
-                      id={'message'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <button className="button is-link" type="submit">
-                    Send
-                  </button>
-                </div>
-              </form>
+                 <form
+                    action='/.netlify/functions/http'
+                    method='post'
+                    onSubmit={handleSubmit}
+                  >
+                    <div className='field'>
+                      <label className='label'>Имя</label>
+                      <div className='control'>
+                        <input
+                          className='input'
+                          type='text'
+                          placeholder='имя'
+                          name='name'
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className='field'>
+                      <label className='label'>Город + данные</label>
+                      <div className='control'>
+                        <input
+                          className='input'
+                          type='email'
+                          placeholder='почта'
+                          name='email'
+                          onChange={handleChange}                  
+                        />
+                      </div>
+                    </div>
+                    <div className='field'>
+                      <label className='label'>Ссылка</label>
+                      <div className='control'>
+                        <input
+                          className='input'
+                          type='email'
+                          placeholder='url'
+                          type='url'
+                          name='$url'                          
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className='field'>
+                      <label className='label'>Тел</label>
+                      <div className='control'>
+                        <input
+                          type='text'
+                          className='input'
+                          placeholder='phone'
+                          name='phone'                          
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                    <div className='field'>
+                      <label className='label'>Дополнительно</label>
+                      <div className='control'>
+                        <textarea
+                          className='textarea'
+                          placeholder='...'
+                          name='message'
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
+                    </div>          
+
+                    <div className='field is-grouped'>
+                      <div className='control'>
+                        <button className='button is-primary' type='submit'>
+                          ok
+                        </button>
+                      </div>
+                    </div>
+                  </form>
             </div>
           </div>
         </section>

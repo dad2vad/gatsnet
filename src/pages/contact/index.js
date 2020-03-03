@@ -1,6 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
+import { navigate } from 'gatsby-link'
 
 function encode(data) {
   return Object.keys(data)
@@ -21,7 +22,7 @@ export default class Index extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target.name + ' ' + e.target.value 
-    fetch('https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec?' + form )
+    fetch('/.netlify/functions/http/' + form )
 //           , {
 
 //       method: 'POST',
@@ -42,8 +43,8 @@ export default class Index extends React.Component {
               <h1>Contact</h1>
               <form
                 name="contact"
-                method="get"
-                action="https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec"
+                method="post"
+                action="/.netlify/functions/http/"
                 onSubmit={this.handleSubmit}
               >
              

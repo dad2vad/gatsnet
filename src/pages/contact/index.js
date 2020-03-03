@@ -34,17 +34,18 @@ export default class Index extends React.Component {
     this.state = { isValidated: false }
   }
 
-  handleChange = e => {
+ const handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleSubmit = e => {
+ const handleSubmit = async e => {
     e.preventDefault()
     const form = e.target.name + ' ' + e.target.value 
-    fetch('/.netlify/functions/http/' + form )
+    const res = await fetch('/.netlify/functions/http/' + form )
          
       .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error))
+    console.log(res)
   }
 
   render() {

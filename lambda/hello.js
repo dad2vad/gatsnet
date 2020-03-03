@@ -1,7 +1,7 @@
 // For more info, check https://www.netlify.com/docs/functions/#javascript-lambda-functions
 //module.exports.handler = async function(event, context) {
 exports.handler = async event => {
-  console.log(JSON.stringify(event,null,4))
+  console.log(JSON.stringify(event.body,null,4))
   return {
     // return null to show no errors
     statusCode: 200, // http status code

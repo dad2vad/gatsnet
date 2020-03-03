@@ -13,40 +13,25 @@ export default class Index extends React.Component {
     super(props)
     this.state = { isValidated: false }
   }
-    }
-  
-   FE = E => {
 
-    const USER_ID =  "iwnyTCYmL3dNSCDDJmvA0A=="  
-    var txt = JSON.stringify(E.target,null,4)  
-    var senderName = 'КАЖУ Ш'
-    var data = {'type' : 'text','text' : txt,'receiver': USER_ID,'sender': {'name': senderName}}
-
-    fetch('/', {
-      "method": 'POST',
-      "headers": { 
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'X-Viber-Auth-Token': '4ae0995b6f67d10d-dd36b04c65262134-adf72625e8e168aa',
-                'cache-control': 'no-cache' 
-      },
-    "uri": 'https://chatapi.viber.com/pa/send_message',
-    "body": JSON.stringify(data)
-    
-  })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch(error => alert(error))
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
-    FE(form)
-}
-
-   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch(error => alert(error))
   }
-  
 
   render() {
     return (
@@ -55,7 +40,13 @@ export default class Index extends React.Component {
           <div className="container">
             <div className="content">
               <h1>Contact</h1>
-
+              <form
+                name="contact"
+                method="post"
+                action="https://ik.netlify.com/.netlify/functions/bot"
+                onSubmit={this.handleSubmit}
+              >
+             
                 <div className="field">
                   <label className="label" htmlFor={'name'}>
                     Your name

@@ -29,7 +29,7 @@ exports.handler = async event => {
             console.log('Problem with request:', e.message);
         })
 
-        req.write(postData)
+     
         req.end()
 
         callback(null, {

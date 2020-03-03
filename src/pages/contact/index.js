@@ -1,31 +1,31 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
-// import { useState } from 'react'
+import { useState } from 'react'
 
-//   const [contact, setContact] = useState({
-//     name: '',
-//     email: '',
-//     subject: '',
-//     phone: '', 
-//     message: ''
-//     })
+  const [contact, setContact] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    phone: '', 
+    message: ''
+    })
   
-//   const [response, setResponse] = useState({
-//     type: '',
-//     message: ''
-//   })
+  const [response, setResponse] = useState({
+    type: '',
+    message: ''
+  })
 
-//   const handleChange = e =>
-//     setContact({ ...contact, [e.target.name]: e.target.value })
+  const handleChange = e =>
+    setContact({ ...contact, [e.target.name]: e.target.value })
 
-//   const handleSubmit = async e => {
-//      e.preventDefault();
+  const handleSubmit = async e => {
+     e.preventDefault();
     
-// const res = await fetch('https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec?' + e)
+const res = await fetch('https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec?' + e)
 
-//        console.log(res)
-//   }
+       console.log(res)
+  }
 
 
 export default class Index extends React.Component {
@@ -34,19 +34,19 @@ export default class Index extends React.Component {
     this.state = { isValidated: false }
   }
 
- const handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
+//  const handleChange = e => {
+//     this.setState({ [e.target.name]: e.target.value })
+//   }
 
- const handleSubmit = async e => {
-    e.preventDefault()
-    const form = e.target.name + ' ' + e.target.value 
-    const res = await fetch('/.netlify/functions/http/' + form )
+//  const handleSubmit = async e => {
+//     e.preventDefault()
+//     const form = e.target.name + ' ' + e.target.value 
+//     const res = await fetch('/.netlify/functions/http/' + form )
          
-      .then(() => navigate(form.getAttribute('action')))
-      .catch(error => alert(error))
-    console.log(res)
-  }
+//       .then(() => navigate(form.getAttribute('action')))
+//       .catch(error => alert(error))
+//     console.log(res)
+//   }
 
   render() {
     return (

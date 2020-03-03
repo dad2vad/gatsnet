@@ -28,7 +28,7 @@ export default class Index extends React.Component {
 //       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 //       body: ,
 //    }
-         )
+         
       .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error))
   }

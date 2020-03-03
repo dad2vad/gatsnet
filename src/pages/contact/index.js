@@ -1,7 +1,31 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
+// import { useState } from 'react'
 
+//   const [contact, setContact] = useState({
+//     name: '',
+//     email: '',
+//     subject: '',
+//     phone: '', 
+//     message: ''
+//     })
+  
+//   const [response, setResponse] = useState({
+//     type: '',
+//     message: ''
+//   })
+
+//   const handleChange = e =>
+//     setContact({ ...contact, [e.target.name]: e.target.value })
+
+//   const handleSubmit = async e => {
+//      e.preventDefault();
+    
+// const res = await fetch('https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec?' + e)
+
+//        console.log(res)
+//   }
 
 
 export default class Index extends React.Component {
@@ -18,16 +42,10 @@ export default class Index extends React.Component {
     e.preventDefault()
     const form = e.target.name + ' ' + e.target.value 
     fetch('/.netlify/functions/http/' + form )
-//           , {
-
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-//       body: ,
-//    }
          
       .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error))
-  }
+  
 
   render() {
     return (
@@ -119,4 +137,5 @@ export default class Index extends React.Component {
       </Layout>
     )
   }
+}
 }

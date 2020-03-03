@@ -2,7 +2,9 @@ import  React, { useState } from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 
-
+ const handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async e => {
      e.preventDefault();
@@ -19,9 +21,7 @@ export default class Index extends React.Component {
     this.state = { isValidated: false }
   }
 
- const handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
+
 
 //  const handleSubmit = async e => {
 //     e.preventDefault()

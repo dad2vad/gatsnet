@@ -20,7 +20,7 @@ export default class Index extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const form = { [e.target.name]: e.target.value }
+    const form = e.target.name + ' ' + e.target.value 
     fetch('https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec?' + form )
 //           , {
 

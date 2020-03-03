@@ -1,16 +1,17 @@
 var https = require("https");
 
 exports.handler = async event => {
-    var body = JSON.parse(event.body)
+    var body = event.body || event.queryStringParameters || ''
 
 
         var options = {
 
-            path: '',
+            path: 'https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec',
             method: 'POST',
-            headers: {        
-                'Content-Type': 'application/json'
-            }
+//             headers: {        
+//                 'Content-Type': 'application/json'
+//             },
+            body: body
         }
     
         var req = https.request(options, function(res) {

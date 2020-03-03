@@ -25,7 +25,7 @@ export default class Index extends React.Component {
 
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(form),
+      body: form,
    }
          )
       .then(() => navigate(form.getAttribute('action')))
@@ -41,7 +41,7 @@ export default class Index extends React.Component {
               <h1>Contact</h1>
               <form
                 name="contact"
-                method="post"
+                method="get"
                 action="https://script.google.com/macros/s/AKfycbzyABTDSiNim6Z2wYzUAki0OjGHbeVjO8arxuh87V-w2SpHXapv/exec"
                 onSubmit={this.handleSubmit}
               >
